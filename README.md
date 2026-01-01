@@ -1,4 +1,4 @@
-# Zaeem Delivery integration for laravel. You will find all the functionality you need to make it a shipment with zaeem delivery logistics
+# Zaeem Delivery integration for laravel. 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ht3aa/zaeem-delivery.svg?style=flat-square)](https://packagist.org/packages/ht3aa/zaeem-delivery)
 [![Total Downloads](https://img.shields.io/packagist/dt/ht3aa/zaeem-delivery.svg?style=flat-square)](https://packagist.org/packages/ht3aa/zaeem-delivery)
