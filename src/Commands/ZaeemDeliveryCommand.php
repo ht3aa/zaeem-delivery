@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Ht3aa\ZaeemDelivery\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ZaeemDeliveryCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'zaeem-delivery';
 
     public $description = 'My command';
 

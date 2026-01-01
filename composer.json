@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "ht3aa/zaeem-delivery",
+    "description": "Zaeem Delivery integration for laravel. You will find all the functionality you need to make it a shipment with zaeem delivery logistics",
     "keywords": [
-        ":vendor_name",
+        "ht3aa",
         "laravel",
-        ":package_slug"
+        "zaeem-delivery"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/ht3aa/zaeem-delivery",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Hasan Tahseen",
+            "email": "ht3aa2001@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Ht3aa\\ZaeemDelivery\\": "src/",
+            "Ht3aa\\ZaeemDelivery\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Ht3aa\\ZaeemDelivery\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Ht3aa\\ZaeemDelivery\\ZaeemDeliveryServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "ZaeemDelivery": "Ht3aa\\ZaeemDelivery\\Facades\\ZaeemDelivery"
             }
         }
     },
