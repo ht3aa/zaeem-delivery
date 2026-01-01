@@ -2,9 +2,9 @@
 
 namespace Ht3aa\ZaeemDelivery\Tests;
 
+use Ht3aa\ZaeemDelivery\ZaeemDeliveryServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Ht3aa\ZaeemDelivery\ZaeemDeliveryServiceProvider;
 
 class TestCase extends Orchestra
 {

@@ -2,9 +2,9 @@
 
 namespace Ht3aa\ZaeemDelivery;
 
+use Ht3aa\ZaeemDelivery\Commands\ZaeemDeliveryCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Ht3aa\ZaeemDelivery\Commands\ZaeemDeliveryCommand;
 
 class ZaeemDeliveryServiceProvider extends PackageServiceProvider
 {
