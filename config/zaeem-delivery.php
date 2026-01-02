@@ -8,6 +8,6 @@ return [
         'username' => env('ZAEEM_DELIVERY_USERNAME'),
         'password' => env('ZAEEM_DELIVERY_PASSWORD'),
         'system_code' => env('ZAEEM_DELIVERY_SYSTEM_CODE'),
-    ]
+    ],
 
 ];
