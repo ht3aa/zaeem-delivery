@@ -2,11 +2,12 @@
 
 namespace Ht3aa\ZaeemDelivery\Commands;
 
+use Ht3aa\ZaeemDelivery\Models\ZaeemCity;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class FetchCities extends Command
+class FetchZaeemCities extends Command
 {
     /**
      * The name and signature of the console command.
@@ -58,7 +59,7 @@ class FetchCities extends Command
         if ($startPage === 1) {
             $cities = $firstResponse['data'] ?? [];
             foreach ($cities as $cityData) {
-                City::firstOrCreate(
+                ZaeemCity::firstOrCreate(
                     ['city_id' => $cityData['city_id']],
                     [
                         'city_name' => $cityData['city_name'],
@@ -86,7 +87,7 @@ class FetchCities extends Command
                 $cities = $response['data'] ?? [];
 
                 foreach ($cities as $cityData) {
-                    City::firstOrCreate(
+                    ZaeemCity::firstOrCreate(
                         ['city_id' => $cityData['city_id']],
                         [
                             'city_name' => $cityData['city_name'],
@@ -110,8 +111,8 @@ class FetchCities extends Command
         $this->info("Successfully fetched and stored {$totalCities} cities.");
 
         if (count($failedPages) > 0) {
-            $this->warn('Failed pages: ' . implode(', ', $failedPages));
-            Log::error('Failed to fetch cities for pages: ' . implode(', ', $failedPages));
+            $this->warn('Failed pages: '.implode(', ', $failedPages));
+            Log::error('Failed to fetch cities for pages: '.implode(', ', $failedPages));
 
             return self::FAILURE;
         }
@@ -138,14 +139,14 @@ class FetchCities extends Command
                 return $response->json();
             }
 
-            Log::warning("Attempt {$attempt} failed for page {$page}: " . $response->body());
+            Log::warning("Attempt {$attempt} failed for page {$page}: ".$response->body());
 
             if ($attempt < $retries) {
                 sleep(2);
             }
         }
 
-        Log::error('Failed to fetch cities from Zaeem Delivery after ' . $retries . ' attempts: ' . $response->body());
+        Log::error('Failed to fetch cities from Zaeem Delivery after '.$retries.' attempts: '.$response->body());
 
         return null;
     }
