@@ -110,8 +110,8 @@ class FetchCities extends Command
         $this->info("Successfully fetched and stored {$totalCities} cities.");
 
         if (count($failedPages) > 0) {
-            $this->warn('Failed pages: ' . implode(', ', $failedPages));
-            Log::error('Failed to fetch cities for pages: ' . implode(', ', $failedPages));
+            $this->warn('Failed pages: '.implode(', ', $failedPages));
+            Log::error('Failed to fetch cities for pages: '.implode(', ', $failedPages));
 
             return self::FAILURE;
         }
@@ -138,14 +138,14 @@ class FetchCities extends Command
                 return $response->json();
             }
 
-            Log::warning("Attempt {$attempt} failed for page {$page}: " . $response->body());
+            Log::warning("Attempt {$attempt} failed for page {$page}: ".$response->body());
 
             if ($attempt < $retries) {
                 sleep(2);
             }
         }
 
-        Log::error('Failed to fetch cities from Zaeem Delivery after ' . $retries . ' attempts: ' . $response->body());
+        Log::error('Failed to fetch cities from Zaeem Delivery after '.$retries.' attempts: '.$response->body());
 
         return null;
     }
