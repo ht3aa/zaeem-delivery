@@ -2,11 +2,12 @@
 
 namespace Ht3aa\ZaeemDelivery\Commands;
 
+use Ht3aa\ZaeemDelivery\Models\ZaeemCity;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class FetchCities extends Command
+class FetchZaeemCities extends Command
 {
     /**
      * The name and signature of the console command.
@@ -58,7 +59,7 @@ class FetchCities extends Command
         if ($startPage === 1) {
             $cities = $firstResponse['data'] ?? [];
             foreach ($cities as $cityData) {
-                City::firstOrCreate(
+                ZaeemCity::firstOrCreate(
                     ['city_id' => $cityData['city_id']],
                     [
                         'city_name' => $cityData['city_name'],
@@ -86,7 +87,7 @@ class FetchCities extends Command
                 $cities = $response['data'] ?? [];
 
                 foreach ($cities as $cityData) {
-                    City::firstOrCreate(
+                    ZaeemCity::firstOrCreate(
                         ['city_id' => $cityData['city_id']],
                         [
                             'city_name' => $cityData['city_name'],
