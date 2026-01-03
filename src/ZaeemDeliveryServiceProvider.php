@@ -4,7 +4,6 @@ namespace Ht3aa\ZaeemDelivery;
 
 use Ht3aa\ZaeemDelivery\Commands\FetchGovernorates;
 use Ht3aa\ZaeemDelivery\Commands\FetchZaeemCities;
-use Ht3aa\ZaeemDelivery\Commands\ZaeemDeliveryCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
