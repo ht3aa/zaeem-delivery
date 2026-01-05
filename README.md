@@ -27,7 +27,6 @@ php artisan vendor:publish --tag="zaeem-delivery-config"
 Add the following environment variables to your `.env` file:
 
 ```env
-ZAEEM_DELIVERY_BASE_URL=https://jenni.alzaeemexp.com/api/v2
 ZAEEM_DELIVERY_USERNAME=your_username
 ZAEEM_DELIVERY_PASSWORD=your_password
 ZAEEM_DELIVERY_SYSTEM_CODE=your_system_code
@@ -72,23 +71,26 @@ Create a new store in Zaeem Delivery:
 
 ```php
 use Ht3aa\ZaeemDelivery\Facades\ZaeemDelivery;
+use Ht3aa\ZaeemDelivery\Models\ZaeemStore;
 
-$store = new ZaeemDeliveryStore([
+// make zaeem store object
+$store = ZaeemStore::make([
     'store_name' => 'My Store',
     'store_phone' => '1234567890',
-    'governorate_id' => 'GOV001',
+    'governorate_code' => 'GOV001',
     'address' => '123 Main Street',
     'latitude' => 31.2001,
     'longitude' => 29.9187,
-    'user_id' => auth()->id(),
+    'owner_id' => auth()->id(),
+    'owner_type' => auth()->user()->getMorphClass(),
 ]);
 
+// create store in zaeem
 $createdStore = ZaeemDelivery::createStore($store);
 
-if ($createdStore) {
-    echo "Store ID: " . $createdStore->zd_store_id;
-    echo "Generated Password: " . $createdStore->zd_generated_password;
-}
+// save the store in the database
+$createdStore->save();
+
 ```
 
 ### Creating a Shipment
@@ -97,17 +99,17 @@ Create a new shipment:
 
 ```php
 use Ht3aa\ZaeemDelivery\Facades\ZaeemDelivery;
+use Ht3aa\ZaeemDelivery\Models\ZaeemShipment;
 
-$shipment = new ZaeemDeliveryShipment([
+$shipment = new ZaeemShipment([
     // Add your shipment data here
+    // make sure to include all the needed fields and especilly the store_id field (even if it nullabel)
+    // it required to identifiy the store
 ]);
 
 $createdShipment = ZaeemDelivery::createShipment($shipment);
 
-if ($createdShipment) {
-    echo "Shipment ID: " . $createdShipment->zd_shipment_id;
-    echo "Status: " . $createdShipment->status;
-}
+$createdShipment->save();
 ```
 
 ### Webhook Integration
