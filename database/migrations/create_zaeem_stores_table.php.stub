@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('store_name');
             $table->string('store_phone');
-            $table->string('governorate_id')->constrained('governorates')->cascadeOnDelete();
+            $table->string('governorate_code');
             $table->string('address');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);

@@ -11,7 +11,7 @@ class ZaeemStore extends Model
     protected $fillable = [
         'store_name',
         'store_phone',
-        'governorate_id',
+        'governorate_code',
         'address',
         'latitude',
         'longitude',
@@ -31,7 +31,7 @@ class ZaeemStore extends Model
 
     public function governorate(): BelongsTo
     {
-        return $this->belongsTo(ZaeemGovernorate::class, 'governorate_id', 'code');
+        return $this->belongsTo(ZaeemGovernorate::class, 'governorate_code', 'code');
     }
 
     public function owner(): MorphTo
