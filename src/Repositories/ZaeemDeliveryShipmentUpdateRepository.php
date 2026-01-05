@@ -5,7 +5,6 @@ namespace Ht3aa\ZaeemDelivery\Repositories;
 use Ht3aa\ZaeemDelivery\Models\ZaeemShipment;
 use Ht3aa\ZaeemDelivery\Models\ZaeemShipmentUpdate;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class ZaeemDeliveryShipmentUpdateRepository
