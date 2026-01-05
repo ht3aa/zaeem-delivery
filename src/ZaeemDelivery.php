@@ -2,6 +2,7 @@
 
 namespace Ht3aa\ZaeemDelivery;
 
+use Ht3aa\ZaeemDelivery\Models\ZaeemStore;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -46,7 +47,7 @@ class ZaeemDelivery
         $this->token = $response->json('token');
     }
 
-    public function createStore(ZaeemDeliveryStore $store): ?ZaeemDeliveryStore
+    public function createStore(ZaeemStore $store): ?ZaeemStore
     {
         $response = $this->client()->post('/stores/create', $store->toArray());
 
