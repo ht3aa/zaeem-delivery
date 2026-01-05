@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('zaeem_shipments', function (Blueprint $table) {
+            $table->id();
+            $table->morphs('order');
+            $table->string('shipment_number');
+            $table->string('external_shipment_id');
+            $table->string('airway_bill_number')->nullable();
+            $table->string('merchant_id')->nullable();
+            $table->foreignId('store_id')->nullable()->constrained('zaeem_delivery_stores')->nullOnDelete();
+            $table->string('receiver_name');
+            $table->string('receiver_phone_1');
+            $table->string('receiver_phone_2')->nullable();
+            $table->string('governorate_code');
+            $table->string('city')->comment('city name');
+            $table->string('address');
+            $table->decimal('amount_iqd', 12, 2)->default(0);
+            $table->decimal('amount_usd', 12, 2)->default(0);
+            $table->unsignedInteger('quantity')->default(1);
+            $table->boolean('is_proof_of_delivery')->default(false);
+            $table->boolean('is_fragile')->default(false);
+            $table->boolean('is_special_case')->default(false);
+            $table->text('product_info')->nullable();
+            $table->text('note')->nullable();
+            $table->decimal('receiver_latitude', 10, 7)->nullable();
+            $table->decimal('receiver_longitude', 10, 7)->nullable();
+            $table->string('zd_shipment_id')->nullable();
+            $table->string('status')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('zaeem_shipments');
+    }
+};
