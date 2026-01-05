@@ -59,8 +59,9 @@ class FetchZaeemCities extends Command
         if ($startPage === 1) {
             $cities = $firstResponse['data'] ?? [];
             foreach ($cities as $cityData) {
+
                 ZaeemCity::firstOrCreate(
-                    ['city_id' => $cityData['city_id']],
+                    ['city_id' => $cityData['city_id'], 'city_name' => $cityData['city_name']],
                     [
                         'city_name' => $cityData['city_name'],
                         'governorate_code' => $cityData['governorate_code'],
@@ -88,7 +89,7 @@ class FetchZaeemCities extends Command
 
                 foreach ($cities as $cityData) {
                     ZaeemCity::firstOrCreate(
-                        ['city_id' => $cityData['city_id']],
+                        ['city_id' => $cityData['city_id'], 'city_name' => $cityData['city_name']],
                         [
                             'city_name' => $cityData['city_name'],
                             'governorate_code' => $cityData['governorate_code'],

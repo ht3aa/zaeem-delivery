@@ -4,6 +4,7 @@ namespace Ht3aa\ZaeemDelivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class ZaeemShipment extends Model
@@ -58,6 +59,11 @@ class ZaeemShipment extends Model
     public function store(): BelongsTo
     {
         return $this->belongsTo(ZaeemStore::class);
+    }
+
+    public function cities(): BelongsToMany
+    {
+        return $this->belongsToMany(ZaeemCity::class, 'city', 'city_name');
     }
 
     public function governorate(): BelongsTo

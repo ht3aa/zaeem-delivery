@@ -50,6 +50,7 @@ class ZaeemDelivery
 
     public function createStore(ZaeemStore $store): ?ZaeemStore
     {
+
         $response = $this->client()->post('/stores/create', $store->toArray());
 
         if ($response->failed()) {
@@ -75,7 +76,7 @@ class ZaeemDelivery
 
         $response = $this->client()->post('/shipments/create', $data);
 
-        if ($response->failed()) {
+        if ($this->responseFailed($response)) {
             Log::error('Failed to create shipment in Zaeem Delivery: '.$response->body());
 
             return null;
@@ -93,5 +94,10 @@ class ZaeemDelivery
         $shipment->status = $acceptedShipments[0]['status'];
 
         return $shipment;
+    }
+
+    public function responseFailed($response): bool
+    {
+        return $response->failed() || $response->json('success') === false;
     }
 }
