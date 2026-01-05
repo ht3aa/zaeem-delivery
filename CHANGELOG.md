@@ -2,6 +2,14 @@
 
 All notable changes to `zaeem-delivery` will be documented in this file.
 
+## v0.0.4 - 2026-01-05
+
+### What's Changed
+
+* update and fix issues by @ht3aa in https://github.com/ht3aa/zaeem-delivery/pull/9
+
+**Full Changelog**: https://github.com/ht3aa/zaeem-delivery/compare/v0.0.3...v0.0.4
+
 ## v0.0.3 - 2026-01-05
 
 ### What's Changed
