@@ -24,6 +24,7 @@ class ZaeemDeliveryServiceProvider extends PackageServiceProvider
                 'create_zaeem_cities_table',
                 'create_zaeem_governorates_table',
                 'create_zaeem_stores_table',
+                'create_zaeem_shipments_table',
             )
             ->hasCommands(
                 FetchZaeemCities::class,
