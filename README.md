@@ -6,7 +6,7 @@
 ![Zaeem Delivery Integration For Laravel](image.png)
 
 
-Zaeem Delivery integration for Laravel. You will find all the functionality you need to make shipments with Zaeem Delivery logistics, including store management, shipment creation, real-time webhook integration for status updates, and reference data synchronization. ![Zaeem Delivery API](https://jenni.alzaeemexp.com/api/v2/docs)
+Zaeem Delivery integration for Laravel. You will find all the functionality you need to make shipments with Zaeem Delivery logistics, including store management, shipment creation, real-time webhook integration for status updates, and reference data synchronization. [Zaeem Delivery API](https://jenni.alzaeemexp.com/api/v2/docs)
 
 ## Installation
 
