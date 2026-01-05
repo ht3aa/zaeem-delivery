@@ -2,6 +2,17 @@
 
 All notable changes to `zaeem-delivery` will be documented in this file.
 
+## v0.0.3 - 2026-01-05
+
+### What's Changed
+
+* Adding zaeem store functionality by @ht3aa in https://github.com/ht3aa/zaeem-delivery/pull/5
+* Adding zaeem shipments functionality by @ht3aa in https://github.com/ht3aa/zaeem-delivery/pull/6
+* Adding web hook with zaeem shipment updates by @ht3aa in https://github.com/ht3aa/zaeem-delivery/pull/7
+* Dev by @ht3aa in https://github.com/ht3aa/zaeem-delivery/pull/8
+
+**Full Changelog**: https://github.com/ht3aa/zaeem-delivery/compare/v0.0.2...v0.0.3
+
 ## v0.0.2 - 2026-01-03
 
 **Full Changelog**: https://github.com/ht3aa/zaeem-delivery/compare/v0.0.1...v0.0.2
