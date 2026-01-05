@@ -2,6 +2,7 @@
 
 namespace Ht3aa\ZaeemDelivery;
 
+use Ht3aa\ZaeemDelivery\Models\ZaeemShipment;
 use Ht3aa\ZaeemDelivery\Models\ZaeemStore;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -63,11 +64,11 @@ class ZaeemDelivery
         return $store;
     }
 
-    public function createShipment(ZaeemDeliveryShipment $shipment): ?ZaeemDeliveryShipment
+    public function createShipment(ZaeemShipment $shipment): ?ZaeemShipment
     {
         $data = [];
 
-        $data['system_code'] = config('services.zaeem-delivery.system_code');
+        $data['system_code'] = config('zaeem-delivery.api.system_code');
         $data['shipments'] = [
             $shipment->toArray(),
         ];

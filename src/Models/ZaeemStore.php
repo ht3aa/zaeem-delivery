@@ -4,6 +4,7 @@ namespace Ht3aa\ZaeemDelivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class ZaeemStore extends Model
 {
@@ -16,7 +17,8 @@ class ZaeemStore extends Model
         'longitude',
         'zd_store_id',
         'zd_generated_password',
-        'user_id',
+        'owner_id',
+        'owner_type',
     ];
 
     protected function casts(): array
@@ -32,8 +34,8 @@ class ZaeemStore extends Model
         return $this->belongsTo(ZaeemGovernorate::class, 'governorate_id', 'code');
     }
 
-    public function user(): BelongsTo
+    public function owner(): MorphTo
     {
-        return $this->belongsTo(User::class);
+        return $this->morphTo();
     }
 }

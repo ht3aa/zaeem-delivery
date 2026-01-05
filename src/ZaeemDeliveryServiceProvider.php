@@ -20,10 +20,13 @@ class ZaeemDeliveryServiceProvider extends PackageServiceProvider
             ->name('zaeem-delivery')
             ->hasConfigFile()
             ->hasViews()
+            ->hasRoute('api')
             ->hasMigrations(
                 'create_zaeem_cities_table',
                 'create_zaeem_governorates_table',
                 'create_zaeem_stores_table',
+                'create_zaeem_shipments_table',
+                'create_zaeem_shipment_updates_table',
             )
             ->hasCommands(
                 FetchZaeemCities::class,
