@@ -2,6 +2,7 @@
 
 namespace Ht3aa\ZaeemDelivery;
 
+use Ht3aa\ZaeemDelivery\Models\ZaeemStore;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -40,18 +41,18 @@ class ZaeemDelivery
         ]);
 
         if ($response->failed()) {
-            Log::error('Failed to login to Zaeem Delivery: '.$response->body());
+            Log::error('Failed to login to Zaeem Delivery: ' . $response->body());
         }
 
         $this->token = $response->json('token');
     }
 
-    public function createStore(ZaeemDeliveryStore $store): ?ZaeemDeliveryStore
+    public function createStore(ZaeemStore $store): ?ZaeemStore
     {
         $response = $this->client()->post('/stores/create', $store->toArray());
 
         if ($response->failed()) {
-            Log::error('Failed to create store in Zaeem Delivery: '.$response->body());
+            Log::error('Failed to create store in Zaeem Delivery: ' . $response->body());
 
             return null;
         }
@@ -74,7 +75,7 @@ class ZaeemDelivery
         $response = $this->client()->post('/shipments/create', $data);
 
         if ($response->failed()) {
-            Log::error('Failed to create shipment in Zaeem Delivery: '.$response->body());
+            Log::error('Failed to create shipment in Zaeem Delivery: ' . $response->body());
 
             return null;
         }
@@ -82,7 +83,7 @@ class ZaeemDelivery
         $acceptedShipments = $response->json('accepted_shipments');
 
         if (! $acceptedShipments) {
-            Log::error('Failed to create shipment in Zaeem Delivery: '.$response->body());
+            Log::error('Failed to create shipment in Zaeem Delivery: ' . $response->body());
 
             return null;
         }
